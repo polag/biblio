@@ -4,6 +4,7 @@ namespace DataHandle;
 
 require_once __DIR__ . '/db.php';
 
+
 use \DataHandle\Utils\InputSanitize;
 use Mysqli;
 use Exception;
@@ -25,7 +26,7 @@ class Utente
 
         // Sanificare numero di telefono e verificarne la validità
         $fields['telefono'] = self::cleanInput($fields['telefono']);
-        if (self::isPhoneNumberValid($fields['phone']) === 0) {
+        if (self::isPhoneNumberValid($fields['telefono']) === 0) {
             $errors[] = new Exception('Numero di telefono non valido.');
         }
 
@@ -53,7 +54,7 @@ class Utente
       
         $ruolo = $query->fetch_assoc();
 
-        if($ruolo = "impiegato"){
+        if($ruolo['ruolo'] == "impiegato"){
             return true;
         }else{
             return false;
@@ -76,8 +77,7 @@ class Utente
         );
 
         $fields = self::sanitize($fields);
-         
-
+         var_dump($fields);
         if ($fields[0] instanceof Exception) {
             $error_messages = '';
             foreach ($fields as $key => $error) {
@@ -86,12 +86,12 @@ class Utente
                     $error_messages .= '|';
                 }
             }
-            header('Location: https://localhost/biblio/login.php?statoreg=errore&messages='
+            header('Location: https://localhost/biblio/registration.php?stato=errore&messages='
                 . $error_messages);
             exit;
         }
         if ($fields['password'] !== $fields['password-check']) {
-            header('Location: https://localhost/biblio/login?statoreg=errore&messages=I Password non corrispondono');
+            header('Location: https://localhost/biblio/registration?stato=errore&messages=I Password non corrispondono');
             exit;
         }
 
@@ -100,32 +100,32 @@ class Utente
         $query_user = $mysqli->query("SELECT codice_fiscale FROM persona WHERE codice_fiscale = '" . $fields['codice_fiscale'] . "'");
 
         if ($query_user->num_rows > 0) {
-            header('Location: https://localhost/biblio/login.php?statoreg=errore&messages=Utente già registrato.');
+            header('Location: https://localhost/biblio/registration.php?stato=errore&messages=Utente già registrato.');
             exit;
         }
         $query_user->close();
 
         //check if email already registered
-        $query_email = $mysqli->query("SELECT email FROM user WHERE email = '" . $fields['email'] . "'");
+        $query_email = $mysqli->query("SELECT email FROM persona WHERE email = '" . $fields['email'] . "'");
 
         if ($query_email->num_rows > 0) {
-            header('Location: https://localhost/biblio/login.php?statoreg=errore&messages=Email già registrato.');
+            header('Location: https://localhost/biblio/registration.php?stato=errore&messages=Email già registrato.');
             exit;
         }
 
         $query_email->close();
 
-        $query = $mysqli->prepare('INSERT INTO user(codice_fiscale, nome, cognome, email, telefono, password, ruolo) VALUES (?, ?,?,?,?,MD5(?),?)');
+        $query = $mysqli->prepare('INSERT INTO persona(codice_fiscale, nome, cognome, email, telefono, password, ruolo) VALUES (?, ?,?,?,?,MD5(?),?)');
         $query->bind_param('sssssss', $fields['codice_fiscale'], $fields['nome'], $fields['cognome'], $fields['email'], $fields['telefono'], $fields['password'],$fields['ruolo']);
         $query->execute();
 
         if ($query->affected_rows === 0) {
             error_log('Error MySQL: ' . $query->error_list[0]['error']);
-            header('Location: https://localhost/biblio/login.php?statoreg=ko');
+            header('Location: https://localhost/biblio/registration.php?stato=ko');
             exit;
         }
 
-        header('Location: https://localhost/biblio/login.php?statoreg=ok');
+        header('Location: https://localhost/biblio/registration.php?stato=ok');
         exit;
     }
 
@@ -180,14 +180,14 @@ class Utente
         }
     }
 
-   /*  public static function selectUser($userId)
+     public static function selectUser($userId)
     {
         global $mysqli;
 
-        $query_user = $mysqli->query("SELECT * FROM user WHERE id = " . $userId);
+        $query_user = $mysqli->query("SELECT * FROM persona WHERE codice_fiscale = '" . $userId."'");
         $user = $query_user->fetch_assoc();
         return $user;
-    } */
+    } 
     public static function updateUser($form_data, $codice_fiscale)
     {
 

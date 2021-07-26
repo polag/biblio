@@ -43,7 +43,7 @@ session_start();
                                     <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Associati</a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="#">Registrare nuovo associato</a></li>
+                                            <li><a class="dropdown-item" href="./registration.php">Registrare nuovo associato</a></li>
 
                                         </ul>
                                     </li>
@@ -57,9 +57,7 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link" href="/biblio/login.php">Log In</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/biblio/login.php">Sign Up</a>
-                            </li>
+                            
                         <?php endif ?>
 
                     </ul>

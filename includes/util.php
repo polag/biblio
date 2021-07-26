@@ -53,6 +53,11 @@ trait InputSanitize
         return preg_match('/^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$/i', $codice_fiscale);
        
     }
+    public static function isISBNValid($ISBN)
+    {
+        return preg_match('/^(?:ISBN(?:-13)?:?\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\ ]){4})[-\ 0-9]{17}$)97[89][-\ ]?[0-9]{1,5}[-\ ]?[0-9]+[-\ ]?[0-9]+[-\ ]?[0-9]$/i', $ISBN);
+       
+    }
 
 
 }

@@ -13,7 +13,8 @@ if (isset($_GET['logout'])) {
 $loggedInUser = \DataHandle\Utente::loginUser($_POST);
 
 $_SESSION['codice_fiscale'] = $loggedInUser['codice_fiscale'];
+
 $is_impiegato = \DataHandle\Utente::isImpiegato($loggedInUser['codice_fiscale']);
 $_SESSION['is_impiegato'] = $is_impiegato;
 header('Location: https://localhost/biblio');
-exit; 
+exit;   
