@@ -24,6 +24,8 @@ foreach($history as $record):
       <td><?php echo $record['data_ritiro'];?></td>
       <td><?php echo $record['data_restituzione'];?></td>
     </tr>
+  </tbody>
+</table>
 
 </div>
 <?php endforeach;?>

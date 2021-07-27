@@ -41,9 +41,10 @@ session_start();
                                 <?php if($_SESSION['is_impiegato']) : ?>
 
                                     <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Associati</a>
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Associati</a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <li><a class="dropdown-item" href="./registration.php">Registrare nuovo associato</a></li>
+                                            <li><a class="dropdown-item" href="./manage-user.php">Gestire associati</a></li>
 
                                         </ul>
                                     </li>

@@ -189,24 +189,26 @@ class Libro extends FormHandle
             header('Location: https://localhost/biblio/index.php?stato=ok&action=Stato Aggiornato');
             exit;
   
-        }    
+    }    
         
-        public static function viewBookHistory($id_libro){
+    public static function viewBookHistory($id_libro = null, $id_user = null){
             global $mysqli;
         
-            $id_libro = intval($id_libro);
-            $query = $mysqli->query("SELECT * FROM ritiro_libro WHERE id_libro = " . $id_libro);
-
-            if ($query->num_rows == 0) {
-                header('Location: https://localhost/biblio/index.php?stato=ko');
-                exit;
+            if($id_libro){
+                $id_libro = intval($id_libro);
+                $query = $mysqli->query("SELECT * FROM ritiro_libro WHERE id_libro = " . $id_libro);
+            }elseif($id_user){
+                
+                $query = $mysqli->query("SELECT * FROM ritiro_libro WHERE id_associato = '". $id_user."'");
             }
+            
+            
             $results = array();
 
             while ($row = $query->fetch_assoc()) {
                 $results[] = $row;
             }
             return $results;
-        }
+    }
 
 }

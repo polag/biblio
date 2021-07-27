@@ -16,6 +16,4 @@ elseif(isset($_GET['prestito'])){
     }
 }elseif(isset($_GET['delete'])){
     \DataHandle\Libro::deleteBook($_GET['id']);
-}elseif(isset($_GET['history'])){
-    \DataHandle\Libro::viewBookHistory($_GET['id']);
 }

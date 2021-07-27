@@ -8,5 +8,5 @@ abstract class FormHandle{
     abstract public static function updateBook($form_data, $id);
     abstract public static function deleteBook($id);
     abstract public static function changeBookStatus($id, $status, $id_user=null);    
-
+    abstract public static function viewBookHistory($id_libro = null, $id_user = null);
 }

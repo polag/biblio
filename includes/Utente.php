@@ -169,13 +169,12 @@ class Utente
         $query->execute();
 
         if ($query->affected_rows > 0) {
-            session_destroy();
-            unset($_SESSION['username']);
-            header('Location: https://localhost/biblio/login.php?logout=1');
+            
+            header('Location: https://localhost/biblio/manage-user.php?stato=ok&action=Eliminato');
             exit;
         } else {
             //var_dump($query);
-            header('Location: https://localhost/biblio/profile.php=stato=ko');
+            header('Location: https://localhost/biblio/manage-user.php&stato=ko');
             exit;
         }
     }
@@ -194,7 +193,6 @@ class Utente
         $fields = array(
             'nome'        => $form_data['nome'],
             'cognome'        => $form_data['cognome'],
-            'codice_fiscale'        => $form_data['codice_fiscale'],
             'telefono'        => $form_data['telefono'],
             'email'        => $form_data['email'],
             'ruolo'        => $form_data['ruolo']
@@ -203,17 +201,17 @@ class Utente
 
         if ($fields) {
             global $mysqli;
-            $query = $mysqli->prepare('UPDATE persona SET nome = ?, cognome = ?, codice_fiscale = ?, telefono = ?, email = ?, ruolo = ? WHERE codice_fiscale = ? ');
+            $query = $mysqli->prepare('UPDATE persona SET nome = ?, cognome = ?, telefono = ?, email = ?, ruolo = ? WHERE codice_fiscale = ? ');
 
-            $query->bind_param('sssssss', $fields['nome'], $fields['cognome'], $fields['codice_fiscale'], $fields['telefono'], $fields['email'], $fields['bio'], $codice_fiscale);
+            $query->bind_param('ssssss', $fields['nome'], $fields['cognome'], $fields['telefono'], $fields['email'], $fields['ruolo'], $codice_fiscale);
             $query->execute();
 
 
             if ($query->affected_rows > 0) {
-                header('Location: https://localhost/biblio/profile.php?id=' . $codice_fiscale . '&stato=ok');
+                header('Location: https://localhost/biblio/manage-user.php?id=' . $codice_fiscale . '&stato=ok&action=Modificato');
                 exit;
             } else {
-                header('Location: https://localhost/biblio/profile.php?id=' . $codice_fiscale . '&stato=ko');
+                header('Location: https://localhost/biblio/manage-user.php?id=' . $codice_fiscale . '&stato=ko');
                 exit;
             }
         }
@@ -227,10 +225,10 @@ class Utente
 
 
             if ($query->affected_rows > 0) {
-                header('Location: https://localhost/biblio/profile.php?id=' . $codice_fiscale . '&stato=ok');
+                header('Location: https://localhost/biblio/index.php?id=' . $codice_fiscale . '&stato=ok');
                 exit;
             } else {
-                header('Location: https://localhost/biblio/profile.php?id=' . $codice_fiscale . '&stato=ko&message=Incorrect Password');
+                header('Location: https://localhost/biblio/index.php?id=' . $codice_fiscale . '&stato=ko&message=Incorrect Password');
                 exit;
             }
     }

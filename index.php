@@ -23,7 +23,7 @@ if (isset($_GET['stato'])) {
 ?>
 <h1>CERCA LIBRI</h1>
 <?php if($is_impiegato):?>
-                <a href="./insert-book.php" class="btn btn-dark">Inserisci nuovo libro</a>
+                <a href="./insert-book.php" class="btn btn-dark">Inserire nuovo libro</a>
                 
                 <?php endif;?>
 
@@ -51,12 +51,13 @@ if (isset($books)) : ?>
                 <?php if ($is_impiegato) : ?>
                     <p>ISBN: <?php echo $book['ISBN']; ?></p>
                     <p>Data di Pubblicazione: <?php echo $book['data_pubblicazione']; ?> </p>
+                    <img src="<?php echo $book['copertina']; ?>" alt="copertina  <?php echo $book['titolo']; ?>">
                 <?php endif; ?>
                 <p><?php echo $book['stato']; ?> </p>
 
             </div>
             <?php if($is_impiegato):?>
-                <?php if($book['stato'] == 'Disponibile'): ?>
+                <?php if(strtolower($book['stato']) == 'disponibile'): ?>
                     <a href="./prestito.php?id=<?php echo $book['id'];?>&titolo=<?php echo $book['titolo'];?>" class="btn btn-dark">Prestito</a>
                 <?php else: ?>
                     <a href="./includes/manage-book.php?prestito=0&id=<?php echo $book['id'];?>" class="btn btn-dark">Disponibile</a>
@@ -64,7 +65,7 @@ if (isset($books)) : ?>
                 <a href="./update-book.php?id=<?php echo $book['id'];?>" class="btn btn-dark">Modificare libro</a>
                 <a href="./history.php?id=<?php echo $book['id'];?>" class="btn btn-dark">Storico dei prestiti</a>
 
-                <a href="./includes/manage-book.php?id=<?php echo $book['id'];?>&delete=1" class="btn btn-dark">Elimina libro</a>
+                <a href="./includes/manage-book.php?id=<?php echo $book['id'];?>&delete=1" class="btn btn-dark">Eliminare libro</a>
                 <?php endif;
         endforeach; ?>
     </div>

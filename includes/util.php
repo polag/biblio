@@ -23,7 +23,7 @@ function show_alert($action_type, $state)
         echo '<div class="alert alert-success" role="alert">'.ucfirst($action_type).' succesfull!</div>';
       }
      else{
-        echo '<div class="alert alert-success" role="alert">Libro '.strtolower($action_type).' con successo</div>';
+        echo '<div class="alert alert-success" role="alert">'.($action_type).' con successo</div>';
 
       }
     }
