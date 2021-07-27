@@ -7,7 +7,7 @@ a{
 }
 
 select.form-select.search {
-    max-width: 350px;
+    width: 350px;
 }
 input.input-group-text {
     min-width: 500px;

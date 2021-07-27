@@ -1,5 +1,9 @@
 <?php
 include_once __DIR__ . '/includes/globals.php';
+if($_SESSION['is_impiegato']==false){
+  header('Location: https://localhost/biblio/index.php');
+  exit;
+}
 $id_libro = $_GET['id'];
 $history = \DataHandle\Libro::viewBookHistory($id_libro);
 

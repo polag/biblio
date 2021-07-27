@@ -7,6 +7,10 @@ if (isset($_GET['stato'])) {
     \DataHandle\Utils\show_alert('Inserito', $_GET['stato']);
 
 }  
+if($_SESSION['is_impiegato']==false){
+    header('Location: https://localhost/biblio/index.php');
+    exit;
+}
 
 
 ?>

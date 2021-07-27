@@ -1,12 +1,16 @@
 <?php
-
 include_once __DIR__ . '/includes/globals.php';
 
+if($_SESSION['is_impiegato']==false){
+    header('Location: https://localhost/biblio/index.php');
+    exit;
+}
 if (isset($_GET['id'])) {
 $id = $_GET['id'];
 $book = \DataHandle\Libro::selectBook($search_type = null, $search_value  = null,$id);
 
 }
+
 ?>
 <div class="manage-book">
     

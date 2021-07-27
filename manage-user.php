@@ -1,7 +1,9 @@
 <?php
-
 include_once __DIR__ . '/includes/globals.php';
-
+if($_SESSION['is_impiegato']==false){
+    header('Location: https://localhost/biblio/index.php');
+    exit;
+}
 if($_POST){
     $codice_fiscale = $_POST['codice_fiscale'];
     $user = \DataHandle\Utente::selectUser($codice_fiscale);
@@ -19,6 +21,7 @@ if (isset($_GET['stato'])) {
     \DataHandle\Utils\show_alert($_GET['action'], $_GET['stato']);
 
 }  
+
 ?>
 
 <form action="./manage-user.php" method="POST" class="container codice-form">

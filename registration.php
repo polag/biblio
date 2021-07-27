@@ -1,6 +1,9 @@
 <?php
 require __DIR__ . '/includes/globals.php';
-
+if($_SESSION['is_impiegato']==false){
+    header('Location: https://localhost/biblio/index.php');
+    exit;
+}
 
 ?>
 <div class="user-registration">
