@@ -225,7 +225,7 @@ class Utente
 
 
             if ($query->affected_rows > 0) {
-                header('Location: https://localhost/biblio/index.php?id=' . $codice_fiscale . '&stato=ok');
+                header('Location: https://localhost/biblio/index.php?stato=ok&action=Modificato');
                 exit;
             } else {
                 header('Location: https://localhost/biblio/index.php?id=' . $codice_fiscale . '&stato=ko&message=Incorrect Password');
