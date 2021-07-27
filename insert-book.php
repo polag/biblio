@@ -10,9 +10,10 @@ if (isset($_GET['stato'])) {
 
 
 ?>
-<div class="">
-    <h2>Inserire un libro</h2>
-    <form action="./includes/manage-book.php?insert=1.php" method="POST" >
+<div class="manage-book">
+    
+    <form action="./includes/manage-book.php?insert=1.php" method="POST" class="container">
+    <h3>Inserire un libro</h3>
         <div class="mb-3">
             <label for="titolo" class="form-label">Titolo</label>
             <input type="text" name="titolo" class="form-control" autocomplete="off" required>

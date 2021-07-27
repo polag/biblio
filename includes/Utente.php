@@ -150,7 +150,7 @@ class Utente
         $user = $query_user->fetch_assoc();
 
         if ($user['password'] !== md5($fields['password'])) {
-            header('Location: https://localhost/blog/login.php?statologin=errore&messages=Password errata.');
+            header('Location: https://localhost/biblio/login.php?statologin=errore&messages=Password errata.');
             exit;
         }
 

@@ -1,0 +1,71 @@
+body{
+    text-align: center;
+    padding: 25px;
+}
+a{
+    color: black;
+}
+
+select.form-select.search {
+    max-width: 350px;
+}
+input.input-group-text {
+    min-width: 500px;
+}
+.input-group{
+    left: 20%;
+    right: 20%;
+    margin: 20px 0;
+    width: fit-content;
+    padding-bottom: 20px;
+}
+
+.book-card{
+    max-width: 80%;
+    margin: auto;
+    padding-top: 15px;
+}
+.card-body{
+    text-align: left;
+}
+
+.card-img-top{
+    max-width: 250px;
+}
+
+.manage-book{
+    text-align: left;
+}
+.registration-fields{
+    text-align: left;
+}
+.registration-fields .row {
+    padding-bottom: 10px;
+}
+.codice-form, .prestito-form, .password-form{
+    text-align: left;
+}
+input.codice-fiscale{
+    max-width: 350px;
+    margin: 20px 0
+}
+.container-fluid{
+    padding-left: 0;
+}
+.navbar{
+    padding-bottom: 30px;
+}
+.form-control,.form-label{
+    margin-bottom: 15px;
+}
+input.prestito, input.password{
+    width: 50%;
+}
+
+.login{
+    margin: auto;
+}
+input.login{
+    margin-bottom: 10px;
+    width: 50%;
+}

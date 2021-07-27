@@ -31,37 +31,37 @@ session_start();
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        
+
                         <?php if (isset($_SESSION['is_impiegato'])) :  ?>
-                            
-
-                                <?php if($_SESSION['is_impiegato']) : ?>
-
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Associati</a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <li><a class="dropdown-item" href="./registration.php">Registrare nuovo associato</a></li>
-                                            <li><a class="dropdown-item" href="./manage-user.php">Gestire associati</a></li>
-
-                                        </ul>
-                                    </li>
-
-                                <?php endif; ?>
-                                <li class="nav-item"><a class="nav-link" href="./password.php">Modifica password</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/biblio/includes/login.php?logout=1">Log out</a></li>
-
-                            </ul>
 
 
+                            <?php if ($_SESSION['is_impiegato']) : ?>
+                                <li class="nav-item"><a class="nav-link" href="./insert-book.php">Inserire Libro</a></li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Associati</a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="./registration.php">Registrare nuovo associato</a></li>
+                                        <li><a class="dropdown-item" href="./manage-user.php">Gestire associati</a></li>
 
-                        <?php else : ?>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/biblio/login.php">Log In</a>
-                            </li>
-                            
-                        <?php endif ?>
+                                    </ul>
+                                </li>
+
+                            <?php endif; ?>
+                            <li class="nav-item"><a class="nav-link" href="./password.php">Modifica password</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/biblio/includes/login.php?logout=1">Log out</a></li>
 
                     </ul>
+
+
+
+                <?php else : ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/biblio/login.php">Log In</a>
+                    </li>
+
+                <?php endif ?>
+
+                </ul>
 
                 </div>
             </div>

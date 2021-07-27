@@ -9,7 +9,7 @@ if(isset($_GET['insert'])){
 elseif(isset($_GET['prestito'])){
     
     if ($_GET['prestito'] == 1){
-        \DataHandle\Libro::changeBookStatus($_POST['id'],'In prestito', $_POST['codice_fiscale']);
+        \DataHandle\Libro::changeBookStatus($_POST['id'],'in prestito', $_POST['codice_fiscale']);
     }
     if ($_GET['prestito'] == 0){
         \DataHandle\Libro::changeBookStatus($_GET['id'],'disponibile');

@@ -155,7 +155,7 @@ class Libro extends FormHandle
         global $mysqli;
         
         $id_libro = intval($id_libro);
-        if($status == 'In prestito'){ 
+        if($status == 'in prestito'){ 
             $query_user = $mysqli->query("SELECT codice_fiscale FROM persona WHERE codice_fiscale = '" . $id_user . "'");
 
             if ($query_user->num_rows == 0) {
@@ -169,7 +169,7 @@ class Libro extends FormHandle
             $query->bind_param('si', $id_user,$id_libro);
             $query->execute();
        }
-        elseif($status == 'Disponibile'){ 
+        elseif($status == 'disponibile'){ 
             $query = $mysqli->prepare('UPDATE ritiro_libro SET data_restituzione = NOW() WHERE id_libro = ?');
             $query->bind_param('i', $id_libro);
             $query->execute();

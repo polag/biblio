@@ -3,17 +3,16 @@ require __DIR__ . '/includes/globals.php';
 
 
 ?>
-<div class="row access">
-
-    <div class="col-8 ">
-        <h1>Registrazione nuovo utente</h1>
+<div class="user-registration">
+      
         <?php
 
         if (isset($_GET['stato'])) {
             \DataHandle\Utils\show_alert('registrazione', $_GET['stato']);
         }
         ?>
-        <form action="includes/registration.php" method="POST" class="container">
+        <form action="includes/registration.php" method="POST" class="container registration-fields">
+        <h3>Registrazione nuovo utente</h3>
         <div class="row">    
             <div class="col">
                 <label for="nome" class="form-label">Nome</label>
@@ -30,6 +29,7 @@ require __DIR__ . '/includes/globals.php';
                 <input type="text" name="codice_fiscale" id="codice_fiscale" class="form-control" required>
             </div>
             <div class="col">
+                <label for="ruolo" class="form-label">Ruolo</label>
                 <select class="form-select" aria-label="Ruolo" name="ruolo">
                     <option value="associato" selected>Associato</option>
                     <option value="impiegato">Impiegato</option>
@@ -61,10 +61,7 @@ require __DIR__ . '/includes/globals.php';
 
             <input type="submit" value="Registrare" class="btn btn-dark">
 
-        </form>
-
-    </div>
-   
+        </form>  
 
 </div>
 

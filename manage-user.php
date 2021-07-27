@@ -21,9 +21,9 @@ if (isset($_GET['stato'])) {
 }  
 ?>
 
-<form action="./manage-user.php" method="POST">
+<form action="./manage-user.php" method="POST" class="container codice-form">
     <label for="codice_fiscale" class="form-label">Inserire codice fiscale del associato</label>
-    <input name="codice_fiscale" type="text"  class="form-control" autocomplete="off" required>
+    <input name="codice_fiscale" type="text"  class="form-control codice-fiscale"  required>
     <input type="submit" value="Cercare" class="btn btn-dark">
 </form>
 
@@ -37,8 +37,7 @@ if (isset($_GET['stato'])) {
             <p>Telefono: <?php echo $user['telefono'];?></p>
         </div>
         <div>
-            <?php foreach($history as $record):
-                $libro = \DataHandle\Libro::selectBook($search_type =null, $search_value =null, $record['id_libro']);?>
+            <?php if (isset($history) && $history!=null):?>
             <table class="table">
             <thead>
                 <tr>
@@ -47,16 +46,21 @@ if (isset($_GET['stato'])) {
                 <th scope="col">Data Restituzione</th>
                 </tr>
             </thead>
+      
             <tbody>
+            <?php foreach($history as $record):
+            $libro = \DataHandle\Libro::selectBook($search_type =null, $search_value =null, $record['id_libro']);?>
                 <tr>
                 <td><?php echo $libro['titolo'];?></td>
                 <td><?php echo $record['data_ritiro'];?></td>
                 <td><?php echo $record['data_restituzione'];?></td>
                 </tr>
+                <?php endforeach;?>
             </tbody>
         </table>
+        <?php endif;?>
 
-        <?php endforeach;?>
+       
         <a href="./manage-user.php?codice_fiscale=<?php echo $codice_fiscale;?>&update=1" class="btn btn-dark">Modificare dati</a>
         <a href="./includes/manage-user.php?codice_fiscale=<?php echo $codice_fiscale;?>&delete=1" class="btn btn-dark">Eliminare associato</a>
                 
@@ -84,6 +88,8 @@ if (isset($_GET['stato'])) {
                 <input type="text" name="codice_fiscale" id="codice_fiscale" class="form-control" value="<?php echo $userUpdate['codice_fiscale'];?>" disabled>
             </div>
             <div class="col">
+            <label for="ruolo" class="form-label">Ruolo</label>
+
                 <select class="form-select" aria-label="Ruolo" name="ruolo">
                     <option value="associato" selected>Associato</option>
                     <option value="impiegato">Impiegato</option>

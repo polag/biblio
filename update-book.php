@@ -8,9 +8,10 @@ $book = \DataHandle\Libro::selectBook($search_type = null, $search_value  = null
 
 }
 ?>
-<div class="">
+<div class="manage-book">
+    
+    <form action="./includes/manage-book.php?update=1&id=<?php echo $id;?>.php" method="POST" class="container" >
     <h2>Modificare libro</h2>
-    <form action="./includes/manage-book.php?update=1&id=<?php echo $id;?>.php" method="POST" >
         <div class="mb-3">
             <label for="titolo" class="form-label">Titolo</label>
             <input type="text" name="titolo" class="form-control" autocomplete="off"  value="<?php echo $book['titolo'];?>" required>
