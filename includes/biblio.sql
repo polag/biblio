@@ -72,7 +72,7 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`codice_fiscale`, `ruolo`, `password`, `nome`, `cognome`, `telefono`, `email`) VALUES
-('gccpla90d52z600q', 'impiegato', 'ba8a48b0e34226a2992d871c65600a7c', 'Paula', 'Goicoechea', '3517680105', 'paula.goicoechea@gmail.com'),
+('gccpla90d42z600q', 'impiegato', 'ba8a48b0e34226a2992d871c65600a7c', 'Paula', 'Gomez', '3517770105', 'paula.gomez@gmail.com'),
 ('MRCVRE90D29Z600J', 'associato', '81dc9bdb52d04dc20036dbd8313ed055', 'Marcos', 'Vera', '3512121212', 'marcos@gmail.com'),
 ('RSSLCU80D41Z600P', 'associato', '202cb962ac59075b964b07152d234b70', 'Lucia', 'Rossi', '3512141512', 'lucirossi@gmail.com');
 
