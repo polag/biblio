@@ -1,5 +1,6 @@
 <?php
 include_once __DIR__ . '/includes/globals.php';
+
 $not_found = false;
 $is_impiegato = false;
 if (isset($_GET['search'])) {
@@ -19,7 +20,7 @@ if (isset($_GET['stato'])) {
     \DataHandle\Utils\show_alert($_GET['action'], $_GET['stato']);
 }
 ?>
-<h1>CATALOGO DI LIBRI</h1>
+<h1>CATALOGO</h1>
 <form class="d-flex cerca-libri">
     <div class="input-group mb-3">
 
@@ -32,7 +33,7 @@ if (isset($_GET['stato'])) {
             <?php endif; ?>
         </select>
         <input class="input-group-text" type="search" placeholder="Cerca Libro" aria-label="search" name="search">
-        <button class="btn btn-secondary" type="submit">Cerca</button>
+        <button class="btn btn-secondary" type="submit"><i class="fas fa-search"></i> Cerca</button>
 
     </div>
 </form>
@@ -54,7 +55,12 @@ if (isset($books)) : ?>
                                 <p>ISBN: <?php echo $book['ISBN']; ?></p>
                                 <p>Data di Pubblicazione: <?php echo $book['data_pubblicazione']; ?> </p>
                             <?php endif; ?>
-                            <p><?php echo $book['stato']; ?> </p>
+                            <?php if ($book['stato'] == 'disponibile') : ?>
+                            
+                            <span class="disponibile"><?php echo strtoupper($book['stato']); ?> </span>
+                            <?php else:?>
+                            <span class="prestito"><?php echo strtoupper($book['stato']); ?> </span>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="card-footer text-muted">

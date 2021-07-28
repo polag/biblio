@@ -211,7 +211,7 @@ class Utente
                 header('Location: https://localhost/biblio/manage-user.php?id=' . $codice_fiscale . '&stato=ok&action=Modificato');
                 exit;
             } else {
-                header('Location: https://localhost/biblio/manage-user.php?id=' . $codice_fiscale . '&stato=ko');
+                header('Location: https://localhost/biblio/manage-user.php?id=' . $codice_fiscale . '&stato=ko&action=Modificato');
                 exit;
             }
         }
@@ -228,7 +228,7 @@ class Utente
                 header('Location: https://localhost/biblio/index.php?stato=ok&action=Modificato');
                 exit;
             } else {
-                header('Location: https://localhost/biblio/index.php?id=' . $codice_fiscale . '&stato=ko&message=Incorrect Password');
+                header('Location: https://localhost/biblio/index.php?id=' . $codice_fiscale . '&stato=ko&message=Incorrect Password&action=Modificato');
                 exit;
             }
     }

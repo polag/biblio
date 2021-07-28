@@ -18,6 +18,10 @@ session_start();
     <link rel="stylesheet" href="/biblio/styles/styles.css" />
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/402cc49e6e.js" crossorigin="anonymous"></script>
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
     <title>Biblioteca</title>
 </head>
 
@@ -56,7 +60,7 @@ session_start();
 
                 <?php else : ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="/biblio/login.php">Log In</a>
+                        <a class="nav-link" href="/biblio/login.php">Accedi</a>
                     </li>
 
                 <?php endif ?>

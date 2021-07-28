@@ -74,8 +74,9 @@ if (isset($_GET['stato'])) {
 </div>
 
 <?php if(isset($_GET['update'])):?>
-    <form action="./includes/manage-user.php?update=1&codice_fiscale=<?php echo $codice_fiscale;?>" method="POST" class="container">
-        <div class="row">    
+    <form action="./includes/manage-user.php?update=1&codice_fiscale=<?php echo $codice_fiscale;?>" method="POST" class="container manage-user">
+    <h3>Modificare Associato</h3>    
+    <div class="row">    
             <div class="col">
                 <label for="nome" class="form-label">Nome</label>
                 <input type="text" name="nome" id="nome" class="form-control" value="<?php echo $userUpdate['nome'];?>" required>

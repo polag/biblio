@@ -1,11 +1,16 @@
 body{
     text-align: center;
     padding: 25px;
+    /*  font-family: 'Gowun Batang', serif;*/
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
 }
 a{
     color: black;
 }
-
+h1,h3{
+    padding-bottom: 20px;
+}
 select.form-select.search {
     width: 350px;
 }
@@ -47,7 +52,7 @@ input.input-group-text {
 }
 input.codice-fiscale{
     max-width: 350px;
-    margin: 20px 0
+    
 }
 .container-fluid{
     padding-left: 0;
@@ -68,4 +73,21 @@ input.prestito, input.password{
 input.login{
     margin-bottom: 10px;
     width: 50%;
+}
+.disponibile{
+    background-color: #198754;
+    color: #fff;
+    padding:5px;
+    font-weight: 700;
+}
+.prestito{
+    background-color: #dc3545;
+    color: #fff;
+    padding:5px;
+    font-weight: 700;
+}
+
+.manage-user{
+    text-align: left;
+    margin-top: 15px;
 }

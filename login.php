@@ -12,7 +12,7 @@ require __DIR__ . '/includes/globals.php';
     }
     ?>
     <form action="includes/login.php" method="POST" class="container login">
-        <h1>Log In</h1>
+        <h1>Accedi</h1>
         <div class="col">
             <label for="codice_fiscale" class="form-label">Codice Fiscale</label>
             <input type="text" name="codice_fiscale" id="codice_fiscale" class="form-control login" required>
