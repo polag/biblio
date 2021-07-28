@@ -59,7 +59,7 @@ if (isset($books)) : ?>
                             
                             <span class="disponibile"><?php echo strtoupper($book['stato']); ?> </span>
                             <?php else:?>
-                            <span class="prestito"><?php echo strtoupper($book['stato']); ?> </span>
+                            <span class="in-prestito"><?php echo strtoupper($book['stato']); ?> </span>
                             <?php endif; ?>
                         </div>
                     </div>
